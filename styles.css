@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light dark;
+  --background: #07080b;
+  --surface: #12151c;
+  --surface-raised: #1a1e28;
+  --text: #f7f8fb;
+  --muted: #a4a9b5;
+  --line: #2b3040;
+  --accent: #7787ff;
+  --accent-soft: #1d254f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 85% 5%, rgba(91, 112, 255, 0.2), transparent 28rem),
+    var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+.shell {
+  width: min(70rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) 0 2rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  padding: 3rem 0 5rem;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 1.4rem;
+  background: linear-gradient(145deg, #8693ff, #5266ff);
+  color: white;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  box-shadow: 0 1.25rem 3rem rgba(63, 80, 220, 0.28);
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.lede {
+  max-width: 44rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  min-height: 18rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface));
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.card:hover, .card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card-number { color: var(--accent); font-variant-numeric: tabular-nums; }
+.card h2 { margin: 3.5rem 0 0.4rem; font-size: 1.7rem; }
+.card p { max-width: 32rem; margin: 0; color: var(--muted); }
+.card-link { display: inline-block; margin-top: 1.5rem; color: var(--accent); font-weight: 700; }
+
+.notice {
+  margin: 1rem 0 4rem;
+  padding: 1.3rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+}
+.notice p { margin: 0.25rem 0 0; color: var(--muted); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.legal { max-width: 56rem; }
+.legal nav { margin-bottom: 4rem; }
+.legal nav a { color: var(--accent); text-decoration: none; font-weight: 700; }
+.legal h1 { max-width: none; font-size: clamp(2.8rem, 8vw, 5.5rem); }
+.updated { color: var(--muted); font-size: 0.9rem; }
+.legal article { margin: 4rem 0; }
+.legal article section { padding: 2rem 0; border-top: 1px solid var(--line); }
+.legal h2 { margin: 0 0 0.65rem; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.legal article p, .legal li { color: var(--muted); }
+.legal article a { color: var(--accent); }
+.contact-panel { padding: 2rem !important; border: 1px solid var(--line) !important; border-radius: 1.3rem; background: var(--surface); }
+.email-button { display: inline-block; padding: 0.7rem 1rem; border-radius: 0.7rem; background: var(--accent); color: white !important; font-weight: 750; text-decoration: none; }
+.muted { font-size: 0.92rem; }
+
+@media (max-width: 42rem) {
+  .hero { grid-template-columns: 1fr; padding-top: 1rem; }
+  .mark { width: 4rem; border-radius: 1.1rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: 15rem; }
+  footer { flex-direction: column; }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f5f6fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #11131a;
+    --muted: #5f6572;
+    --line: #dfe2eb;
+    --accent: #4559df;
+    --accent-soft: #e9ecff;
+  }
+  body { background: radial-gradient(circle at 85% 5%, #e2e6ff, transparent 28rem), var(--background); }
+  .card { box-shadow: 0 1rem 3rem rgba(45, 55, 90, 0.08); }
+}
